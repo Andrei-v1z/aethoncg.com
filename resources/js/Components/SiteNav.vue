@@ -80,7 +80,7 @@ onUnmounted(() => {
             : 'border-b border-transparent bg-transparent'"
     >
         <div class="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8"
-            :class="scrolled ? 'h-[4.25rem]' : 'h-20 lg:h-24'"
+            :class="scrolled ? 'h-[4.5rem]' : 'h-20 lg:h-[4.75rem]'"
         >
             <Link href="/" class="relative z-50 text-aethon-cream" @click="closeMenu">
                 <AethonLogo />
