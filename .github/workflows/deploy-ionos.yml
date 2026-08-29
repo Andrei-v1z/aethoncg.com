@@ -11,6 +11,9 @@ env:
   APP_URL: https://aethoncg.com
   DB_HOST: db5021301145.hosting-data.io
   DB_PORT: '3306'
+  IONOS_SSH_HOST: access-5019302200.webspace-host.com
+  IONOS_SSH_USERNAME: su1846070
+  IONOS_SSH_PATH: /
 
 jobs:
   deploy:
@@ -106,23 +109,23 @@ jobs:
       - name: Deploy to IONOS via SFTP
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-          server: ${{ secrets.IONOS_SSH_HOST }}
-          username: ${{ secrets.IONOS_SSH_USERNAME }}
+          server: ${{ env.IONOS_SSH_HOST }}
+          username: ${{ env.IONOS_SSH_USERNAME }}
           password: ${{ secrets.IONOS_SSH_PASSWORD }}
           port: 22
           localDir: ./release/
-          remoteDir: ${{ secrets.IONOS_SSH_PATH }}
+          remoteDir: ${{ env.IONOS_SSH_PATH }}
           sftpArgs: '-o ConnectTimeout=30'
 
       - name: Post-deploy (migrate and cache)
         uses: appleboy/ssh-action@v1.2.0
         with:
-          host: ${{ secrets.IONOS_SSH_HOST }}
-          username: ${{ secrets.IONOS_SSH_USERNAME }}
+          host: ${{ env.IONOS_SSH_HOST }}
+          username: ${{ env.IONOS_SSH_USERNAME }}
           password: ${{ secrets.IONOS_SSH_PASSWORD }}
           port: 22
           script: |
-            cd ${{ secrets.IONOS_SSH_PATH }}
+            cd ${{ env.IONOS_SSH_PATH }}
             php artisan migrate --force
             php artisan storage:link || true
             php artisan config:cache

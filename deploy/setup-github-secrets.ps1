@@ -2,9 +2,6 @@
 # Repo: Andrei-v1z/aethoncg.com
 
 param(
-    [Parameter(Mandatory = $true)]
-    [string]$IonosSshHost,
-
     [string]$Repo = "Andrei-v1z/aethoncg.com"
 )
 
@@ -25,10 +22,7 @@ $googleSecretPlain = [Runtime.InteropServices.Marshal]::PtrToStringAuto(
     [Runtime.InteropServices.Marshal]::SecureStringToBSTR($googleSecret)
 )
 
-gh secret set IONOS_SSH_HOST --body $IonosSshHost -R $Repo
-gh secret set IONOS_SSH_USERNAME --body "su1846070" -R $Repo
 gh secret set IONOS_SSH_PASSWORD --body $ionosSshPasswordPlain -R $Repo
-gh secret set IONOS_SSH_PATH --body "/" -R $Repo
 
 gh secret set DB_DATABASE --body "dbu2466973" -R $Repo
 gh secret set DB_USERNAME --body "dbu2466973" -R $Repo

@@ -15,12 +15,11 @@ Deployments run automatically via GitHub Actions on every push to `main`.
 
 | Setting  | Value |
 |----------|-------|
+| Host     | `access-5019302200.webspace-host.com` |
 | Username | `su1846070` |
 | Protocol | SFTP + SSH |
 | Port     | `22` |
 | Directory| `/` |
-
-Get the **server hostname** from IONOS: **Hosting → SFTP & SSH → click `su1846070` → copy Server/Host** (e.g. `access123456789.webspace-data.io`).
 
 ## Set GitHub Secrets
 
@@ -28,7 +27,7 @@ Get the **server hostname** from IONOS: **Hosting → SFTP & SSH → click `su18
 
 ```powershell
 gh auth login
-.\deploy\setup-github-secrets.ps1 -IonosSshHost "accessXXXXXXXX.webspace-data.io"
+.\deploy\setup-github-secrets.ps1
 ```
 
 You will be prompted for passwords (never commit these to git).
@@ -37,10 +36,7 @@ You will be prompted for passwords (never commit these to git).
 
 | Secret | Value |
 |--------|-------|
-| `IONOS_SSH_HOST` | From IONOS SFTP account details |
-| `IONOS_SSH_USERNAME` | `su1846070` |
 | `IONOS_SSH_PASSWORD` | Your SFTP password |
-| `IONOS_SSH_PATH` | `/` |
 | `DB_DATABASE` | `dbu2466973` |
 | `DB_USERNAME` | `dbu2466973` |
 | `DB_PASSWORD` | Your MariaDB password |
