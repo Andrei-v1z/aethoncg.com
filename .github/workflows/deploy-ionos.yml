@@ -49,6 +49,7 @@ jobs:
           APP_KEY=${{ secrets.APP_KEY }}
           APP_DEBUG=false
           APP_URL=${{ env.APP_URL }}
+          ASSET_URL=${{ env.APP_URL }}
 
           APP_LOCALE=en
           APP_FALLBACK_LOCALE=en
