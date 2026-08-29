@@ -122,18 +122,20 @@ jobs:
           port: 22
           script: |
             mkdir -p ${{ env.IONOS_SSH_PATH }}
-            rm -rf ${{ env.IONOS_SSH_PATH }}/public/build
 
-      - name: Deploy to IONOS via SFTP
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
-        with:
-          server: ${{ env.IONOS_SSH_HOST }}
-          username: ${{ env.IONOS_SSH_USERNAME }}
-          password: ${{ secrets.IONOS_SSH_PASSWORD }}
-          port: 22
-          local_path: ./release/
-          remote_path: ${{ env.IONOS_SSH_PATH }}
-          sftpArgs: '-o ConnectTimeout=30'
+      - name: Deploy to IONOS via rsync
+        env:
+          SSHPASS: ${{ secrets.IONOS_SSH_PASSWORD }}
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq sshpass rsync
+          sshpass -e rsync -avz \
+            -e "ssh -o StrictHostKeyChecking=no -o ConnectTimeout=30" \
+            --exclude 'storage/logs/*' \
+            --exclude 'storage/framework/sessions/*' \
+            --exclude 'storage/framework/cache/data/*' \
+            ./release/ \
+            "${{ env.IONOS_SSH_USERNAME }}@${{ env.IONOS_SSH_HOST }}:${{ env.IONOS_SSH_PATH }}/"
 
       - name: Post-deploy (composer, migrate, cache)
         uses: appleboy/ssh-action@v1.2.0
@@ -144,6 +146,10 @@ jobs:
           port: 22
           script: |
             cd ${{ env.IONOS_SSH_PATH }}
+            if [ -d release/public ]; then
+              rsync -a release/ ./
+              rm -rf release
+            fi
             rm -f public/hot
             composer install --no-dev --optimize-autoloader --no-interaction
             php artisan migrate --force
