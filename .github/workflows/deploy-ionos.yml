@@ -113,8 +113,8 @@ jobs:
           username: ${{ env.IONOS_SSH_USERNAME }}
           password: ${{ secrets.IONOS_SSH_PASSWORD }}
           port: 22
-          localDir: ./release/
-          remoteDir: ${{ env.IONOS_SSH_PATH }}
+          local_path: ./release/
+          remote_path: ${{ env.IONOS_SSH_PATH }}
           sftpArgs: '-o ConnectTimeout=30'
 
       - name: Post-deploy (migrate and cache)
