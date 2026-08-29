@@ -1,15 +1,17 @@
 # Deploy Aethon to IONOS
 
-## Manual upload (recommended first time)
+## Server path
 
-1. Upload the project to `/aethoncg.com/` on your IONOS webspace (not webspace root).
-2. In IONOS, connect **aethoncg.com** and set document root to `/aethoncg.com/public`.
-3. Create `.env` on the server from `deploy/ionos.env.example`.
+Project lives at `/Aethon/` on the webspace.
+
+## Manual upload
+
+1. Upload to `/Aethon/` (not webspace root).
+2. Connect **aethoncg.com** in IONOS and set document root to `/Aethon/public`.
+3. Assign the MariaDB database to this webspace in IONOS (Hosting → Databases).
 4. Via SSH:
    ```bash
-   cd /aethoncg.com
-   composer install --no-dev --optimize-autoloader
-   php artisan key:generate
+   cd /Aethon
    php artisan migrate --force
    php artisan config:cache
    chmod -R 775 storage bootstrap/cache
@@ -19,13 +21,13 @@
 
 Auto-deploy on push is **disabled**. Run manually: **Actions → Deploy to IONOS → Run workflow**.
 
-Deploys to `/aethoncg.com/` only. Does not upload `vendor/` — runs `composer install` on the server via SSH.
+Deploys to `/Aethon/` only.
 
 ## Credentials
 
 | Service | Host | User |
 |---------|------|------|
 | SFTP/SSH | `access-5019302200.webspace-host.com` | `su1846070` |
-| MariaDB | `db5021301145.hosting-data.io` | `dbu2466973` |
+| MariaDB | `db5021301145.hosting-data.io` | `dbu2466973` / `dbs16067497` |
 
 Do not deploy to webspace root `/` — other sites live there (BrightPixel, RSPM, etc.).
