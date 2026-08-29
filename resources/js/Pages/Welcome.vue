@@ -279,8 +279,8 @@ const guidelines = [
                     >
                         Request Consultation
                     </Link>
-                    <a href="mailto:consulting@aethon.com" class="btn-outline">
-                        consulting@aethon.com
+                    <a href="mailto:consulting@aethoncg.com" class="btn-outline">
+                        consulting@aethoncg.com
                     </a>
                 </div>
             </div>
@@ -314,7 +314,7 @@ const guidelines = [
                             <Link :href="route('register')" class="transition hover:text-aethon-gold">Client Access</Link>
                         </li>
                         <li>
-                            <a href="mailto:consulting@aethon.com" class="transition hover:text-aethon-gold">consulting@aethon.com</a>
+                            <a href="mailto:consulting@aethoncg.com" class="transition hover:text-aethon-gold">consulting@aethoncg.com</a>
                         </li>
                     </ul>
                 </div>

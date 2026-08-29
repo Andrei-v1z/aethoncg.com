@@ -19,7 +19,7 @@ Project lives at `/Aethon/` on the webspace.
 
 ## GitHub Actions (later)
 
-Auto-deploy on push is **disabled**. Run manually: **Actions → Deploy to IONOS → Run workflow**.
+Auto-deploy on push to `main` is enabled. You can also run manually: **Actions → Deploy to IONOS → Run workflow**.
 
 Deploys to `/Aethon/` only.
 

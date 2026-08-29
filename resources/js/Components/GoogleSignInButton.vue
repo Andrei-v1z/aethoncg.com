@@ -1,9 +1,5 @@
-<script setup>
-import { Link } from '@inertiajs/vue3';
-</script>
-
 <template>
-    <Link
+    <a
         :href="route('google.redirect')"
         class="flex w-full items-center justify-center gap-3 border border-white/15 bg-white/5 px-4 py-3 font-sans text-sm text-aethon-cream transition hover:border-aethon-gold/40 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-aethon-gold focus:ring-offset-2 focus:ring-offset-aethon-charcoal"
     >
@@ -26,5 +22,5 @@ import { Link } from '@inertiajs/vue3';
             />
         </svg>
         <span>Continue with Google</span>
-    </Link>
+    </a>
 </template>

@@ -36,6 +36,9 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: npm
 
+      - name: Install Composer dependencies (needed for Ziggy during Vite build)
+        run: composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+
       - name: Install NPM dependencies and build assets
         run: |
           npm ci
