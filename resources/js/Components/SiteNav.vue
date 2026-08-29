@@ -20,7 +20,7 @@ const props = defineProps({
 
 const links = [
     { href: '#practice', label: 'Practice' },
-    { href: '#services', label: 'Services' },
+    { href: '#solutions', label: 'Solutions' },
     { href: '#focus', label: 'Focus' },
     { href: '#contact', label: 'Contact' },
 ];

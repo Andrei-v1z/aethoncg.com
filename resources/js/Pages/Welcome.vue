@@ -13,24 +13,124 @@ defineProps({
     },
 });
 
-const services = [
+const solutions = [
     {
         number: '01',
-        title: 'Asset & Yield Advisory',
-        description:
-            'RevPAR optimization, revenue architecture, and portfolio performance analytics for owners who treat hospitality as a commercial asset class.',
+        title: 'Diagnose',
+        philosophy:
+            "We identify what is actually wrong before recommending a solution. Don't fix the symptom before understanding the disease.",
+        includes: [
+            'Commercial audits',
+            'Operational audits',
+            'Performance analysis',
+            'Revenue leakage identification',
+            'Process & contract reviews',
+            'Supplier & distribution analysis',
+            'Profitability analysis',
+            'Root-cause diagnosis',
+            'Commercial health checks',
+        ],
     },
     {
         number: '02',
-        title: 'Commercial Design Strategy',
-        description:
-            'Architectural direction, material curation, and spatial brand positioning that converts design investment into measurable commercial value.',
+        title: 'Commercial Strategy',
+        philosophy:
+            'We help companies improve how they generate revenue, protect margins, and develop commercially.',
+        includes: [
+            'Commercial & revenue strategy',
+            'Pricing & margin analysis',
+            'Sales & business development',
+            'Market positioning',
+            'Commercial planning & roadmaps',
+            'KPI design',
+            'Performance management',
+            'Revenue optimization',
+            'Growth strategy',
+        ],
     },
     {
         number: '03',
-        title: 'Transaction Advisory',
-        description:
-            'Feasibility studies, acquisition diligence, and development pipeline governance for owners, operators, and capital partners.',
+        title: 'Contracting & Supplier Management',
+        philosophy:
+            'The goal is not simply a lower rate. It is commercially useful agreements that improve competitiveness, flexibility, margin, and production.',
+        includes: [
+            'Hotel & DMC contracting',
+            'Supplier sourcing & evaluation',
+            'Rate & allocation negotiations',
+            'Contract restructuring',
+            'Payment & cancellation terms',
+            'Exclusivity & pre-buy agreements',
+            'Portfolio optimization',
+            'Supplier benchmarking',
+            'Contract renewal',
+        ],
+    },
+    {
+        number: '04',
+        title: 'Operations & Distribution',
+        philosophy:
+            'We identify and improve the machinery behind the product. Operational problems can quietly create commercial losses.',
+        includes: [
+            'Reservation & booking workflows',
+            'Product, rate & inventory loading',
+            'Mapping & distribution',
+            'SOP development',
+            'Operational audits',
+            'Quality control',
+            'Workflow optimization',
+            'System & process analysis',
+            'Error reduction',
+        ],
+    },
+    {
+        number: '05',
+        title: 'Product & Market Development',
+        philosophy:
+            'We help companies create, improve, and commercialize products and markets.',
+        includes: [
+            'Product development',
+            'Tourism packages & hotel portfolios',
+            'Destination development',
+            'New market entry & expansion',
+            'Market feasibility & research',
+            'Commercialization & partnerships',
+            'Product positioning',
+            'Supplier networks',
+            'Expansion planning',
+        ],
+    },
+    {
+        number: '06',
+        title: 'People & Performance',
+        philosophy:
+            'Commercial strategy is useless if the team cannot execute it.',
+        includes: [
+            'Team structure & role definition',
+            'KPI & performance systems',
+            'Commercial, reservation & contracting training',
+            'Skills-gap analysis',
+            'Incentive structures',
+            'Accountability systems',
+            'Organizational development',
+            'Performance improvement',
+        ],
+    },
+    {
+        number: '07',
+        title: 'Fractional Commercial Management',
+        philosophy:
+            'For companies that need ongoing commercial expertise without immediately building a full internal department.',
+        includes: [
+            'Outsourced commercial management',
+            'Fractional leadership',
+            'Outsourced contracting',
+            'Product & market management',
+            'Business development',
+            'Supplier management',
+            'Ongoing performance management',
+            'Commercial reporting',
+            'Senior commercial support',
+        ],
     },
 ];
 
@@ -122,8 +222,8 @@ const principles = [
                     <BlurFade immediate :delay="320">
                         <p class="mb-12 max-w-lg text-base leading-relaxed text-aethon-cream/60">
                             Aethon Commercial Group advises owners, operators, and capital partners on
-                            hospitality asset performance, commercial design, and transaction strategy.
-                            We measure rooms in returns, not sunsets.
+                            hospitality asset performance, commercial design, and transaction strategy
+                            across seven structured solution categories.
                         </p>
                     </BlurFade>
                     <BlurFade immediate :delay="420">
@@ -162,47 +262,65 @@ const principles = [
                             matches the stakes of their portfolios.
                         </p>
                         <p>
-                            Our identity is deliberate: deep navy authority, warm gold precision, and
-                            editorial restraint. The brand signals commercial seriousness, not leisure
-                            aspiration.
+                            Behind these seven solution categories sits a much larger internal catalogue
+                            of skills. That depth is our toolbox. The website presents the work through
+                            seven clear entry points, not hundreds of individual service lines.
                         </p>
                         <p>
-                            From asset reviews to development pipelines, every engagement is structured
-                            to protect value, sharpen positioning, and accelerate commercial outcomes.
+                            From diagnosis through fractional commercial management, every engagement is
+                            structured to protect value, sharpen positioning, and accelerate commercial
+                            outcomes.
                         </p>
                     </BlurFade>
                 </div>
             </div>
         </section>
 
-        <!-- Services -->
-        <section id="services" class="scroll-mt-24 border-t border-white/5 py-24 lg:py-32">
+        <!-- Solutions -->
+        <section id="solutions" class="scroll-mt-24 border-t border-white/5 py-24 lg:py-32">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
-                <BlurFade class="mb-16 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-                    <div>
-                        <p class="section-label mb-4">Services</p>
-                        <h2 class="font-display text-3xl font-light text-aethon-cream md:text-4xl">
-                            Commercial counsel across the asset lifecycle
-                        </h2>
-                    </div>
-                    <p class="max-w-sm text-sm text-aethon-cream/45">
-                        Three disciplines. One mandate: extract and protect value from hospitality assets.
+                <BlurFade class="mb-16 max-w-3xl">
+                    <p class="section-label mb-4">Aethon Solutions</p>
+                    <h2 class="font-display text-3xl font-light text-aethon-cream md:text-4xl">
+                        Seven major solution categories
+                    </h2>
+                    <p class="mt-6 text-sm leading-relaxed text-aethon-cream/50">
+                        We draw on a broad internal catalogue of commercial capabilities. Visitors see
+                        seven structured solution areas — each a clear entry point into how we help
+                        hospitality and travel businesses perform.
                     </p>
                 </BlurFade>
 
-                <div class="grid gap-px bg-aethon-gold/10 md:grid-cols-3">
+                <div class="space-y-5">
                     <BlurFade
-                        v-for="(item, index) in services"
-                        :key="item.number"
-                        :delay="index * 120"
+                        v-for="(solution, index) in solutions"
+                        :key="solution.number"
+                        :delay="index * 70"
                         as="article"
-                        class="group bg-aethon-navy p-8 transition duration-500 hover:bg-aethon-charcoal lg:p-12"
+                        class="group border border-white/5 bg-aethon-navy/80 p-8 transition duration-500 hover:border-aethon-gold/25 hover:bg-aethon-charcoal/80 lg:p-10"
                     >
-                        <p class="font-display text-4xl font-light text-aethon-gold">{{ item.number }}</p>
-                        <h3 class="mt-8 font-display text-2xl text-aethon-cream">{{ item.title }}</h3>
-                        <p class="mt-4 text-sm leading-relaxed text-aethon-cream/50">
-                            {{ item.description }}
-                        </p>
+                        <div class="grid gap-8 lg:grid-cols-12 lg:gap-10">
+                            <div class="lg:col-span-4">
+                                <p class="font-display text-4xl font-light text-aethon-gold">{{ solution.number }}</p>
+                                <h3 class="mt-4 font-display text-2xl text-aethon-cream lg:text-[1.65rem]">
+                                    {{ solution.title }}
+                                </h3>
+                            </div>
+                            <div class="lg:col-span-8">
+                                <p class="text-sm leading-relaxed text-aethon-cream/60">
+                                    {{ solution.philosophy }}
+                                </p>
+                                <div class="mt-6 flex flex-wrap gap-2">
+                                    <span
+                                        v-for="item in solution.includes"
+                                        :key="item"
+                                        class="rounded-sm border border-aethon-gold/15 bg-aethon-charcoal/60 px-3 py-1.5 font-sans text-[0.68rem] uppercase tracking-[0.12em] text-aethon-cream/55 transition group-hover:border-aethon-gold/30 group-hover:text-aethon-cream/75"
+                                    >
+                                        {{ item }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </BlurFade>
                 </div>
             </div>
@@ -306,15 +424,16 @@ const principles = [
                 <BlurFade class="md:col-span-2">
                     <AethonLogo />
                     <p class="mt-6 max-w-sm text-sm leading-relaxed text-aethon-cream/40">
-                        Hospitality commercial advisory. Asset yield, design strategy, and
-                        transaction counsel for premium portfolios.
+                        Hospitality commercial advisory across seven solution categories. Diagnosis,
+                        strategy, contracting, operations, product development, people, and fractional
+                        management.
                     </p>
                 </BlurFade>
                 <BlurFade :delay="100">
                     <p class="section-label mb-5">Navigate</p>
                     <ul class="space-y-3 text-sm text-aethon-cream/50">
                         <li><a href="#practice" class="transition hover:text-aethon-gold">Practice</a></li>
-                        <li><a href="#services" class="transition hover:text-aethon-gold">Services</a></li>
+                        <li><a href="#solutions" class="transition hover:text-aethon-gold">Solutions</a></li>
                         <li><a href="#focus" class="transition hover:text-aethon-gold">Focus Areas</a></li>
                         <li><a href="#contact" class="transition hover:text-aethon-gold">Contact</a></li>
                     </ul>
