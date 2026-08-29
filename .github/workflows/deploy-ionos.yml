@@ -98,6 +98,7 @@ jobs:
         run: |
           mkdir -p release
           rm -f public/hot
+          test -f public/build/manifest.json
           rsync -a \
             --exclude '.git' \
             --exclude '.github' \
@@ -109,6 +110,8 @@ jobs:
             --exclude 'release' \
             --exclude 'public/hot' \
             ./ release/
+          echo "Built assets:"
+          ls -la release/public/build/assets | head
 
       - name: Ensure remote directory exists
         uses: appleboy/ssh-action@v1.2.0
@@ -119,6 +122,7 @@ jobs:
           port: 22
           script: |
             mkdir -p ${{ env.IONOS_SSH_PATH }}
+            rm -rf ${{ env.IONOS_SSH_PATH }}/public/build
 
       - name: Deploy to IONOS via SFTP
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
@@ -145,6 +149,7 @@ jobs:
             php artisan migrate --force
             php artisan storage:link || true
             php artisan config:clear
+            php artisan view:clear
             php artisan config:cache
             php artisan route:cache
             php artisan view:cache

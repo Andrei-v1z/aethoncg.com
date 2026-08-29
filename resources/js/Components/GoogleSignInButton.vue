@@ -1,7 +1,14 @@
+<script setup>
+const redirectToGoogle = () => {
+    window.location.assign(route('google.redirect'));
+};
+</script>
+
 <template>
-    <a
-        :href="route('google.redirect')"
+    <button
+        type="button"
         class="flex w-full items-center justify-center gap-3 border border-white/15 bg-white/5 px-4 py-3 font-sans text-sm text-aethon-cream transition hover:border-aethon-gold/40 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-aethon-gold focus:ring-offset-2 focus:ring-offset-aethon-charcoal"
+        @click="redirectToGoogle"
     >
         <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" aria-hidden="true">
             <path
@@ -22,5 +29,5 @@
             />
         </svg>
         <span>Continue with Google</span>
-    </a>
+    </button>
 </template>

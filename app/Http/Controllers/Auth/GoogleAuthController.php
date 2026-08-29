@@ -18,9 +18,10 @@ class GoogleAuthController extends Controller
     public function redirect(): RedirectResponse|\Symfony\Component\HttpFoundation\Response
     {
         $redirect = Socialite::driver('google')->redirect();
+        $targetUrl = $redirect->getTargetUrl();
 
-        if (request()->header('X-Inertia')) {
-            return inertia()->location($redirect->getTargetUrl());
+        if (request()->inertia() || request()->ajax() || request()->wantsJson()) {
+            return inertia()->location($targetUrl);
         }
 
         return $redirect;
