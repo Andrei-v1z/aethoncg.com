@@ -6,6 +6,8 @@
 
         <title inertia>{{ config('app.name', 'Aethon Commercial Group') }}</title>
 
+        <link rel="icon" type="image/png" href="/images/aethon-mark.png">
+
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=cinzel:400,500,600|cormorant-garamond:300,400,500,600,300i,400i|dm-sans:400,500,600&display=swap" rel="stylesheet" />
