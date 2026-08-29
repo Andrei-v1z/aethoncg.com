@@ -11,8 +11,8 @@ const showingNavigationDropdown = ref(false);
 </script>
 
 <template>
-    <div class="min-h-screen bg-aethon-black">
-        <nav class="sticky top-0 z-40 border-b border-white/10 bg-aethon-black/90 backdrop-blur-xl">
+    <div class="min-h-screen bg-aethon-navy">
+        <nav class="sticky top-0 z-40 border-b border-white/10 bg-aethon-navy/90 backdrop-blur-xl">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
                 <div class="flex h-[4.5rem] items-center justify-between">
                     <div class="flex items-center gap-10">

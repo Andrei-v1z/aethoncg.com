@@ -4,11 +4,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title inertia>{{ config('app.name', 'Aethon') }}</title>
+        <title inertia>{{ config('app.name', 'Aethon Commercial Group') }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=cormorant-garamond:300,400,500,600,300i,400i|dm-sans:400,500,600&display=swap" rel="stylesheet" />
+        <link href="https://fonts.bunny.net/css?family=cinzel:400,500,600|cormorant-garamond:300,400,500,600,300i,400i|dm-sans:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
         @routes

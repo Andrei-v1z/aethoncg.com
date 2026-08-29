@@ -12,33 +12,33 @@ defineProps({
     },
 });
 
-const capabilities = [
+const services = [
     {
         number: '01',
-        title: 'Asset Yield',
+        title: 'Asset & Yield Advisory',
         description:
-            'RevPAR optimization, revenue architecture, and portfolio-level performance analytics that treat hospitality as an investment, not a lifestyle.',
+            'RevPAR optimization, revenue architecture, and portfolio performance analytics for owners who treat hospitality as a commercial asset class.',
     },
     {
         number: '02',
-        title: 'Design Strategy',
+        title: 'Commercial Design Strategy',
         description:
-            'Architectural consultation, material curation, and brand positioning through spatial experience. Value expressed in form, not scenery.',
+            'Architectural direction, material curation, and spatial brand positioning that converts design investment into measurable commercial value.',
     },
     {
         number: '03',
-        title: 'Deal Consulting',
+        title: 'Transaction Advisory',
         description:
             'Feasibility studies, acquisition diligence, and development pipeline governance for owners, operators, and capital partners.',
     },
 ];
 
-const imageryPillars = [
+const focusAreas = [
     {
         id: 'boardroom',
         title: 'Boardroom & Strategy',
         description:
-            'Executive tables, yield reviews, and capital allocation. Business photography of the rooms where hospitality deals are decided.',
+            'Executive tables, yield reviews, and capital allocation. The rooms where hospitality assets are governed and repositioned.',
         image: '/images/boardroom.jpg',
         alt: 'Business team in an executive strategy meeting',
     },
@@ -46,7 +46,7 @@ const imageryPillars = [
         id: 'aero',
         title: 'Aviation & Movement',
         description:
-            'Private aviation, tarmac light, and cabin interiors. The aero layer of premium travel, not residential architecture.',
+            'Private aviation, tarmac light, and cabin interiors. The mobility layer of premium commercial travel and hospitality access.',
         image: '/images/aviation.jpg',
         alt: 'Private jet on the tarmac at dusk',
     },
@@ -54,7 +54,7 @@ const imageryPillars = [
         id: 'travel',
         title: 'Travel Environments',
         description:
-            'Hotel lobbies, departure halls, and guest circulation. Travel stock that signals hospitality operations, never houses.',
+            'Hotel lobbies, departure halls, and guest circulation. Operational environments that signal institutional hospitality, not leisure.',
         image: '/images/hotel-lobby.jpg',
         alt: 'Luxury hotel lobby for premium travel',
     },
@@ -68,29 +68,29 @@ const imageryPillars = [
     },
 ];
 
-const guidelines = [
+const principles = [
     {
-        title: 'Color Integration',
+        title: 'Institutional Positioning',
         description:
-            'Rich shadow depth paired with warm ambient lighting: architectural tungsten, brass accents, and deep blacks that signal premium consulting.',
+            'Deep navy and warm gold signal authority, continuity, and premium commercial counsel. Every touchpoint should read as asset management.',
     },
     {
-        title: 'Composition Style',
+        title: 'Editorial Restraint',
         description:
-            'Shallow depth of field with a cinematic, editorial feel. Avoid bright, saturated, or flat stock photography that reads as leisure travel.',
+            'Cinematic composition with shallow depth of field. Avoid saturated leisure imagery that undermines a commercial group identity.',
     },
     {
-        title: 'Narrative Shift',
+        title: 'Value-First Narrative',
         description:
-            'Replace vacation iconography with micro-moments of hospitality deal-making, design strategy, and investor-level decisions.',
+            'Lead with yield, architecture, capital, and the decisions that move portfolios. Spectacle is secondary to returns.',
     },
 ];
 </script>
 
 <template>
-    <Head title="Hospitality Asset Consulting" />
+    <Head title="Aethon Commercial Group" />
 
-    <div class="min-h-screen bg-aethon-black font-sans text-aethon-cream/80 antialiased">
+    <div class="min-h-screen bg-aethon-navy font-sans text-aethon-cream/80 antialiased">
         <SiteNav :can-login="canLogin" :can-register="canRegister" />
 
         <!-- Hero -->
@@ -101,23 +101,21 @@ const guidelines = [
                     alt="Aircraft wing above clouds during business travel"
                     class="h-full w-full object-cover object-center"
                 />
-                <div class="absolute inset-0 bg-gradient-to-r from-aethon-black via-aethon-black/80 to-aethon-black/35" />
-                <div class="absolute inset-0 bg-gradient-to-t from-aethon-black via-transparent to-aethon-black/40" />
+                <div class="absolute inset-0 bg-gradient-to-r from-aethon-navy via-aethon-navy/85 to-aethon-navy/40" />
+                <div class="absolute inset-0 bg-gradient-to-t from-aethon-navy via-transparent to-aethon-navy/50" />
             </div>
 
             <div class="relative mx-auto grid w-full max-w-7xl gap-16 px-6 py-16 lg:grid-cols-12 lg:px-8 lg:py-32">
                 <div class="lg:col-span-8">
-                    <p class="section-label mb-8">Hospitality Asset Consulting</p>
-                    <h1 class="mb-4 font-display text-6xl font-light leading-[0.92] tracking-[0.08em] text-aethon-cream sm:text-7xl lg:text-8xl">
-                        AETHON
-                    </h1>
+                    <AethonLogo stacked class="mb-10" />
+                    <p class="section-label mb-6">Hospitality Commercial Advisory</p>
                     <p class="mb-10 max-w-xl font-display text-2xl font-light italic leading-snug text-aethon-gold/90 md:text-3xl">
                         Strategy for assets that earn.
                     </p>
                     <p class="mb-12 max-w-lg text-base leading-relaxed text-aethon-cream/60">
-                        We shift hospitality from aspirational leisure to high-stakes asset management,
-                        yield architecture, and investor-grade decisions for owners who measure rooms
-                        in returns, not sunsets.
+                        Aethon Commercial Group advises owners, operators, and capital partners on
+                        hospitality asset performance, commercial design, and transaction strategy.
+                        We measure rooms in returns, not sunsets.
                     </p>
                     <div class="flex flex-wrap gap-4">
                         <a href="#practice" class="btn-primary">The Practice</a>
@@ -125,7 +123,7 @@ const guidelines = [
                     </div>
                 </div>
 
-                <div class="hidden flex-col justify-end border-l border-white/10 pl-10 lg:col-span-4 lg:flex">
+                <div class="hidden flex-col justify-end border-l border-aethon-gold/15 pl-10 lg:col-span-4 lg:flex">
                     <p class="font-sans text-[0.65rem] uppercase tracking-[0.28em] text-aethon-gold">From the Greek</p>
                     <p class="mt-3 font-display text-2xl font-light italic text-aethon-cream">Αἴθων</p>
                     <p class="mt-2 text-sm leading-relaxed text-aethon-cream/45">
@@ -143,36 +141,37 @@ const guidelines = [
                     <div class="lg:col-span-5">
                         <p class="section-label mb-5">The Practice</p>
                         <h2 class="font-display text-3xl font-light text-aethon-cream md:text-5xl">
-                            From B2C leisure to high-margin B2B consulting
+                            A commercial group built for hospitality assets
                         </h2>
                     </div>
                     <div class="space-y-6 text-base leading-relaxed text-aethon-cream/60 lg:col-span-7">
                         <p>
-                            The visual identity must match the work. Generic vacation photography, beaches,
-                            passports, and sun loungers positions Aethon as a travel brand. It is not.
+                            Aethon Commercial Group sits at the intersection of yield, design, and
+                            deal structure. We work with institutional owners who need counsel that
+                            matches the stakes of their portfolios.
                         </p>
                         <p>
-                            The black and warm-gold palette already signals high-end consulting. Pair it
-                            with micro-moments of deal-making and design strategy, and the language
-                            shifts instantly from leisure to institutional consulting.
+                            Our identity is deliberate: deep navy authority, warm gold precision, and
+                            editorial restraint. The brand signals commercial seriousness, not leisure
+                            aspiration.
                         </p>
                         <p>
-                            Every frame, word, and surface should read as asset management: yield,
-                            architecture, capital, and the people who decide.
+                            From asset reviews to development pipelines, every engagement is structured
+                            to protect value, sharpen positioning, and accelerate commercial outcomes.
                         </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Capabilities -->
-        <section id="capabilities" class="scroll-mt-24 border-t border-white/5 py-24 lg:py-32">
+        <!-- Services -->
+        <section id="services" class="scroll-mt-24 border-t border-white/5 py-24 lg:py-32">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
                 <div class="mb-16 flex flex-col justify-between gap-6 md:flex-row md:items-end">
                     <div>
-                        <p class="section-label mb-4">Capabilities</p>
+                        <p class="section-label mb-4">Services</p>
                         <h2 class="font-display text-3xl font-light text-aethon-cream md:text-4xl">
-                            Where capital, design, and operations meet
+                            Commercial counsel across the asset lifecycle
                         </h2>
                     </div>
                     <p class="max-w-sm text-sm text-aethon-cream/45">
@@ -180,11 +179,11 @@ const guidelines = [
                     </p>
                 </div>
 
-                <div class="grid gap-px bg-white/10 md:grid-cols-3">
+                <div class="grid gap-px bg-aethon-gold/10 md:grid-cols-3">
                     <article
-                        v-for="item in capabilities"
+                        v-for="item in services"
                         :key="item.number"
-                        class="group bg-aethon-black p-8 transition duration-500 hover:bg-aethon-charcoal lg:p-12"
+                        class="group bg-aethon-navy p-8 transition duration-500 hover:bg-aethon-charcoal lg:p-12"
                     >
                         <p class="font-display text-4xl font-light text-aethon-gold">{{ item.number }}</p>
                         <h3 class="mt-8 font-display text-2xl text-aethon-cream">{{ item.title }}</h3>
@@ -196,19 +195,19 @@ const guidelines = [
             </div>
         </section>
 
-        <!-- Visual Language -->
-        <section id="visual-language" class="scroll-mt-24 border-t border-white/5 bg-aethon-charcoal py-24 lg:py-32">
+        <!-- Focus Areas -->
+        <section id="focus" class="scroll-mt-24 border-t border-white/5 bg-aethon-charcoal py-24 lg:py-32">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
                 <div class="mb-16 max-w-2xl">
-                    <p class="section-label mb-4">Visual Language</p>
+                    <p class="section-label mb-4">Focus Areas</p>
                     <h2 class="font-display text-3xl font-light text-aethon-cream md:text-4xl">
-                        Four territories that redefine hospitality positioning
+                        Where commercial hospitality decisions take shape
                     </h2>
                 </div>
 
                 <div class="grid gap-4 md:grid-cols-2">
                     <article
-                        v-for="pillar in imageryPillars"
+                        v-for="pillar in focusAreas"
                         :key="pillar.id"
                         class="card-editorial group"
                     >
@@ -218,7 +217,7 @@ const guidelines = [
                                 :alt="pillar.alt"
                                 class="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                             />
-                            <div class="absolute inset-0 bg-gradient-to-t from-aethon-black via-aethon-black/30 to-transparent" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-aethon-navy via-aethon-navy/30 to-transparent" />
                             <div class="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
                                 <h3 class="font-display text-2xl text-aethon-cream">{{ pillar.title }}</h3>
                             </div>
@@ -233,14 +232,14 @@ const guidelines = [
 
                 <div class="mt-24 grid gap-16 lg:grid-cols-12">
                     <div class="lg:col-span-4">
-                        <p class="section-label mb-4">Execution</p>
+                        <p class="section-label mb-4">Brand Principles</p>
                         <h3 class="font-display text-3xl font-light text-aethon-cream">
-                            Guidelines for editorial-grade photography
+                            How we present commercial authority
                         </h3>
                     </div>
                     <div class="space-y-0 lg:col-span-8">
                         <div
-                            v-for="(guide, index) in guidelines"
+                            v-for="(guide, index) in principles"
                             :key="guide.title"
                             class="flex gap-6 border-t border-white/10 py-8"
                         >
@@ -263,13 +262,13 @@ const guidelines = [
         <section id="contact" class="scroll-mt-24 relative overflow-hidden border-t border-white/5 py-24 lg:py-36">
             <div class="absolute inset-0 bg-hero-glow" />
             <div class="relative mx-auto max-w-3xl px-6 text-center lg:px-8">
-                <AethonLogo stacked class="mx-auto mb-10 text-aethon-cream" />
+                <AethonLogo stacked class="mx-auto mb-10" />
                 <h2 class="font-display text-3xl font-light text-aethon-cream md:text-5xl">
                     Briefings for owners, operators, and capital.
                 </h2>
                 <p class="mx-auto mt-6 max-w-lg text-aethon-cream/50">
-                    Align your brand, assets, and visual language with investor-grade positioning.
-                    Aethon consults at the intersection of yield, design, and deal structure.
+                    Align your portfolio, brand, and commercial strategy with investor-grade positioning.
+                    Aethon Commercial Group advises at the intersection of yield, design, and deal structure.
                 </p>
                 <div class="mt-12 flex flex-wrap justify-center gap-4">
                     <Link
@@ -277,7 +276,7 @@ const guidelines = [
                         :href="route('register')"
                         class="btn-primary"
                     >
-                        Request Consultation
+                        Request Briefing
                     </Link>
                     <a href="mailto:consulting@aethoncg.com" class="btn-outline">
                         consulting@aethoncg.com
@@ -289,18 +288,18 @@ const guidelines = [
         <footer class="border-t border-white/5 bg-aethon-charcoal">
             <div class="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-4 lg:px-8">
                 <div class="md:col-span-2">
-                    <AethonLogo class="text-aethon-cream" />
+                    <AethonLogo />
                     <p class="mt-6 max-w-sm text-sm leading-relaxed text-aethon-cream/40">
-                        Hospitality asset consulting. Yield strategy, design direction, and
-                        deal counsel for premium portfolios.
+                        Hospitality commercial advisory. Asset yield, design strategy, and
+                        transaction counsel for premium portfolios.
                     </p>
                 </div>
                 <div>
                     <p class="section-label mb-5">Navigate</p>
                     <ul class="space-y-3 text-sm text-aethon-cream/50">
                         <li><a href="#practice" class="transition hover:text-aethon-gold">Practice</a></li>
-                        <li><a href="#capabilities" class="transition hover:text-aethon-gold">Capabilities</a></li>
-                        <li><a href="#visual-language" class="transition hover:text-aethon-gold">Visual Language</a></li>
+                        <li><a href="#services" class="transition hover:text-aethon-gold">Services</a></li>
+                        <li><a href="#focus" class="transition hover:text-aethon-gold">Focus Areas</a></li>
                         <li><a href="#contact" class="transition hover:text-aethon-gold">Contact</a></li>
                     </ul>
                 </div>
@@ -321,7 +320,7 @@ const guidelines = [
             </div>
             <div class="border-t border-white/5">
                 <div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-3 px-6 py-6 text-[0.7rem] text-aethon-cream/30 sm:flex-row sm:items-center lg:px-8">
-                    <p>&copy; {{ new Date().getFullYear() }} Aethon Consulting. All rights reserved.</p>
+                    <p>&copy; {{ new Date().getFullYear() }} Aethon Commercial Group. All rights reserved.</p>
                     <p class="tracking-[0.2em] uppercase">Αἴθων · Blazing</p>
                 </div>
             </div>

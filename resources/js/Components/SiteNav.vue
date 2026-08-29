@@ -20,8 +20,8 @@ const props = defineProps({
 
 const links = [
     { href: '#practice', label: 'Practice' },
-    { href: '#capabilities', label: 'Capabilities' },
-    { href: '#visual-language', label: 'Visual Language' },
+    { href: '#services', label: 'Services' },
+    { href: '#focus', label: 'Focus' },
     { href: '#contact', label: 'Contact' },
 ];
 
@@ -76,7 +76,7 @@ onUnmounted(() => {
     <header
         class="fixed inset-x-0 top-0 z-50 transition-all duration-300"
         :class="scrolled || menuOpen
-            ? 'border-b border-white/10 bg-aethon-black/90 backdrop-blur-xl'
+            ? 'border-b border-white/10 bg-aethon-navy/90 backdrop-blur-xl'
             : 'border-b border-transparent bg-transparent'"
     >
         <div class="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8"
@@ -168,7 +168,7 @@ onUnmounted(() => {
         >
             <div
                 v-if="menuOpen"
-                class="fixed inset-0 z-40 flex flex-col bg-aethon-black pt-28 lg:hidden"
+                class="fixed inset-0 z-40 flex flex-col bg-aethon-navy pt-28 lg:hidden"
             >
                 <div class="absolute inset-0 bg-hero-glow opacity-60" />
                 <nav class="relative flex flex-1 flex-col px-8">

@@ -47,7 +47,7 @@ jobs:
       - name: Create production .env
         run: |
           cat > .env << EOF
-          APP_NAME=Aethon
+          APP_NAME="Aethon Commercial Group"
           APP_ENV=production
           APP_KEY=${{ secrets.APP_KEY }}
           APP_DEBUG=false
@@ -85,9 +85,9 @@ jobs:
 
           MAIL_MAILER=log
           MAIL_FROM_ADDRESS="consulting@aethoncg.com"
-          MAIL_FROM_NAME="Aethon"
+          MAIL_FROM_NAME="Aethon Commercial Group"
 
-          VITE_APP_NAME="Aethon"
+          VITE_APP_NAME="Aethon Commercial Group"
 
           GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }}
           GOOGLE_CLIENT_SECRET=${{ secrets.GOOGLE_CLIENT_SECRET }}

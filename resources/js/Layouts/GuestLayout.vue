@@ -4,7 +4,7 @@ import { Link } from '@inertiajs/vue3';
 </script>
 
 <template>
-    <div class="relative flex min-h-screen flex-col items-center justify-center bg-aethon-black px-4 py-16">
+    <div class="relative flex min-h-screen flex-col items-center justify-center bg-aethon-navy px-4 py-16">
         <div class="pointer-events-none absolute inset-0 bg-hero-glow opacity-70" />
 
         <div class="relative mb-10">
@@ -21,7 +21,7 @@ import { Link } from '@inertiajs/vue3';
             href="/"
             class="relative mt-10 font-sans text-[0.7rem] uppercase tracking-[0.22em] text-aethon-cream/40 transition hover:text-aethon-gold"
         >
-            Return to Aethon
+            Return to Aethon Commercial Group
         </Link>
     </div>
 </template>
