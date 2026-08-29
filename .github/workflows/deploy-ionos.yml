@@ -1,8 +1,8 @@
 name: Deploy to IONOS
 
+# Disabled auto-deploy — upload manually first, then run this workflow when ready.
+# Future deploys should target a subfolder (e.g. /aethoncg.com), not webspace root.
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 env:
@@ -13,7 +13,7 @@ env:
   DB_PORT: '3306'
   IONOS_SSH_HOST: access-5019302200.webspace-host.com
   IONOS_SSH_USERNAME: su1846070
-  IONOS_SSH_PATH: /
+  IONOS_SSH_PATH: /aethoncg.com
 
 jobs:
   deploy:
@@ -35,9 +35,6 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: npm
-
-      - name: Install Composer dependencies
-        run: composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
 
       - name: Install NPM dependencies and build assets
         run: |
@@ -93,18 +90,29 @@ jobs:
           GOOGLE_REDIRECT_URI=${{ env.APP_URL }}/auth/google/callback
           EOF
 
-      - name: Prepare deployment package
+      - name: Prepare deployment package (no vendor — run composer on server)
         run: |
           mkdir -p release
           rsync -a \
             --exclude '.git' \
             --exclude '.github' \
             --exclude 'node_modules' \
+            --exclude 'vendor' \
             --exclude 'tests' \
             --exclude '.env.example' \
             --exclude 'database/database.sqlite' \
             --exclude 'release' \
             ./ release/
+
+      - name: Ensure remote directory exists
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ env.IONOS_SSH_HOST }}
+          username: ${{ env.IONOS_SSH_USERNAME }}
+          password: ${{ secrets.IONOS_SSH_PASSWORD }}
+          port: 22
+          script: |
+            mkdir -p ${{ env.IONOS_SSH_PATH }}
 
       - name: Deploy to IONOS via SFTP
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
@@ -117,7 +125,7 @@ jobs:
           remote_path: ${{ env.IONOS_SSH_PATH }}
           sftpArgs: '-o ConnectTimeout=30'
 
-      - name: Post-deploy (migrate and cache)
+      - name: Post-deploy (composer, migrate, cache)
         uses: appleboy/ssh-action@v1.2.0
         with:
           host: ${{ env.IONOS_SSH_HOST }}
@@ -126,6 +134,7 @@ jobs:
           port: 22
           script: |
             cd ${{ env.IONOS_SSH_PATH }}
+            composer install --no-dev --optimize-autoloader --no-interaction
             php artisan migrate --force
             php artisan storage:link || true
             php artisan config:cache

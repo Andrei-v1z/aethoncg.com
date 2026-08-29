@@ -1,56 +1,31 @@
 # Deploy Aethon to IONOS
 
-Deployments run automatically via GitHub Actions on every push to `main`.
+## Manual upload (recommended first time)
 
-## Database (MariaDB)
+1. Upload the project to `/aethoncg.com/` on your IONOS webspace (not webspace root).
+2. In IONOS, connect **aethoncg.com** and set document root to `/aethoncg.com/public`.
+3. Create `.env` on the server from `deploy/ionos.env.example`.
+4. Via SSH:
+   ```bash
+   cd /aethoncg.com
+   composer install --no-dev --optimize-autoloader
+   php artisan key:generate
+   php artisan migrate --force
+   php artisan config:cache
+   chmod -R 775 storage bootstrap/cache
+   ```
 
-| Setting  | Value |
-|----------|-------|
-| Host     | `db5021301145.hosting-data.io` |
-| Port     | `3306` |
-| Username | `dbu2466973` |
-| Database | `dbu2466973` |
+## GitHub Actions (later)
 
-## SFTP / SSH (IONOS)
+Auto-deploy on push is **disabled**. Run manually: **Actions → Deploy to IONOS → Run workflow**.
 
-| Setting  | Value |
-|----------|-------|
-| Host     | `access-5019302200.webspace-host.com` |
-| Username | `su1846070` |
-| Protocol | SFTP + SSH |
-| Port     | `22` |
-| Directory| `/` |
+Deploys to `/aethoncg.com/` only. Does not upload `vendor/` — runs `composer install` on the server via SSH.
 
-## Set GitHub Secrets
+## Credentials
 
-### Quick setup (PowerShell)
+| Service | Host | User |
+|---------|------|------|
+| SFTP/SSH | `access-5019302200.webspace-host.com` | `su1846070` |
+| MariaDB | `db5021301145.hosting-data.io` | `dbu2466973` |
 
-```powershell
-gh auth login
-.\deploy\setup-github-secrets.ps1
-```
-
-You will be prompted for passwords (never commit these to git).
-
-### Required secrets
-
-| Secret | Value |
-|--------|-------|
-| `IONOS_SSH_PASSWORD` | Your SFTP password |
-| `DB_DATABASE` | `dbu2466973` |
-| `DB_USERNAME` | `dbu2466973` |
-| `DB_PASSWORD` | Your MariaDB password |
-| `APP_KEY` | `php artisan key:generate --show` |
-| `GOOGLE_CLIENT_ID` | Google OAuth client ID |
-| `GOOGLE_CLIENT_SECRET` | Google OAuth client secret |
-
-## Trigger deploy
-
-Push to `main`, or go to **Actions → Deploy to IONOS → Run workflow**.
-
-## IONOS panel
-
-1. Connect **aethoncg.com** to your webspace.
-2. Set document root to Laravel `public/`, or use the root `.htaccess`.
-3. Set PHP to **8.2+**.
-4. Add Google redirect URI: `https://aethoncg.com/auth/google/callback`
+Do not deploy to webspace root `/` — other sites live there (BrightPixel, RSPM, etc.).
