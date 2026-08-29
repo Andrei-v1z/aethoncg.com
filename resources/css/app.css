@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-aethon-black text-aethon-cream;
+    }
+
+    ::selection {
+        @apply bg-aethon-gold/30 text-aethon-cream;
+    }
+}
+
+@layer components {
+    .section-label {
+        @apply font-sans text-[0.65rem] font-medium uppercase tracking-[0.28em] text-aethon-gold;
+    }
+
+    .heading-display {
+        @apply font-display text-4xl font-light leading-[1.08] tracking-tight text-aethon-cream md:text-5xl lg:text-7xl;
+    }
+
+    .card-editorial {
+        @apply relative overflow-hidden border border-white/5 bg-aethon-charcoal/80 backdrop-blur-sm transition duration-500 hover:border-aethon-gold/30;
+    }
+
+    .gold-line {
+        @apply h-px w-16 bg-gradient-to-r from-aethon-gold to-transparent;
+    }
+
+    .btn-primary {
+        @apply inline-flex items-center justify-center border border-aethon-gold bg-aethon-gold px-8 py-3.5 font-sans text-[0.7rem] font-medium uppercase tracking-[0.2em] text-aethon-black transition duration-300 hover:bg-aethon-gold-light hover:border-aethon-gold-light;
+    }
+
+    .btn-outline {
+        @apply inline-flex items-center justify-center border border-aethon-gold/40 px-8 py-3.5 font-sans text-[0.7rem] font-medium uppercase tracking-[0.2em] text-aethon-gold transition duration-300 hover:border-aethon-gold hover:bg-aethon-gold/10;
+    }
+}
