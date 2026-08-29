@@ -1,5 +1,6 @@
 <script setup>
 import AethonLogo from '@/Components/AethonLogo.vue';
+import BlurFade from '@/Components/BlurFade.vue';
 import SiteNav from '@/Components/SiteNav.vue';
 import { Head, Link } from '@inertiajs/vue3';
 
@@ -99,7 +100,7 @@ const principles = [
                 <img
                     src="/images/hero-wing.jpg"
                     alt="Aircraft wing above clouds during business travel"
-                    class="h-full w-full object-cover object-center"
+                    class="hero-image h-full w-full object-cover object-center"
                 />
                 <div class="absolute inset-0 bg-gradient-to-r from-aethon-navy via-aethon-navy/85 to-aethon-navy/40" />
                 <div class="absolute inset-0 bg-gradient-to-t from-aethon-navy via-transparent to-aethon-navy/50" />
@@ -107,30 +108,40 @@ const principles = [
 
             <div class="relative mx-auto grid w-full max-w-7xl gap-16 px-6 py-16 lg:grid-cols-12 lg:px-8 lg:py-32">
                 <div class="lg:col-span-8">
-                    <AethonLogo stacked class="mb-10" />
-                    <p class="section-label mb-6">Hospitality Commercial Advisory</p>
-                    <p class="mb-10 max-w-xl font-display text-2xl font-light italic leading-snug text-aethon-gold/90 md:text-3xl">
-                        Strategy for assets that earn.
-                    </p>
-                    <p class="mb-12 max-w-lg text-base leading-relaxed text-aethon-cream/60">
-                        Aethon Commercial Group advises owners, operators, and capital partners on
-                        hospitality asset performance, commercial design, and transaction strategy.
-                        We measure rooms in returns, not sunsets.
-                    </p>
-                    <div class="flex flex-wrap gap-4">
-                        <a href="#practice" class="btn-primary">The Practice</a>
-                        <a href="#contact" class="btn-outline">Request a Briefing</a>
-                    </div>
+                    <BlurFade immediate>
+                        <AethonLogo stacked class="mb-10" />
+                    </BlurFade>
+                    <BlurFade immediate :delay="120">
+                        <p class="section-label mb-6">Hospitality Commercial Advisory</p>
+                    </BlurFade>
+                    <BlurFade immediate :delay="220">
+                        <p class="mb-10 max-w-xl font-display text-2xl font-light italic leading-snug text-aethon-gold/90 md:text-3xl">
+                            Strategy for assets that earn.
+                        </p>
+                    </BlurFade>
+                    <BlurFade immediate :delay="320">
+                        <p class="mb-12 max-w-lg text-base leading-relaxed text-aethon-cream/60">
+                            Aethon Commercial Group advises owners, operators, and capital partners on
+                            hospitality asset performance, commercial design, and transaction strategy.
+                            We measure rooms in returns, not sunsets.
+                        </p>
+                    </BlurFade>
+                    <BlurFade immediate :delay="420">
+                        <div class="flex flex-wrap gap-4">
+                            <a href="#practice" class="btn-primary">The Practice</a>
+                            <a href="#contact" class="btn-outline">Request a Briefing</a>
+                        </div>
+                    </BlurFade>
                 </div>
 
-                <div class="hidden flex-col justify-end border-l border-aethon-gold/15 pl-10 lg:col-span-4 lg:flex">
+                <BlurFade immediate :delay="280" class="hidden flex-col justify-end border-l border-aethon-gold/15 pl-10 lg:col-span-4 lg:flex">
                     <p class="font-sans text-[0.65rem] uppercase tracking-[0.28em] text-aethon-gold">From the Greek</p>
                     <p class="mt-3 font-display text-2xl font-light italic text-aethon-cream">Αἴθων</p>
                     <p class="mt-2 text-sm leading-relaxed text-aethon-cream/45">
                         Blazing. The sun-horse. Heat with direction, energy applied to value,
                         not spectacle.
                     </p>
-                </div>
+                </BlurFade>
             </div>
         </section>
 
@@ -138,13 +149,13 @@ const principles = [
         <section id="practice" class="scroll-mt-24 border-t border-white/5 bg-aethon-charcoal py-24 lg:py-32">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
                 <div class="grid gap-16 lg:grid-cols-12 lg:gap-20">
-                    <div class="lg:col-span-5">
+                    <BlurFade class="lg:col-span-5">
                         <p class="section-label mb-5">The Practice</p>
                         <h2 class="font-display text-3xl font-light text-aethon-cream md:text-5xl">
                             A commercial group built for hospitality assets
                         </h2>
-                    </div>
-                    <div class="space-y-6 text-base leading-relaxed text-aethon-cream/60 lg:col-span-7">
+                    </BlurFade>
+                    <BlurFade :delay="120" class="space-y-6 text-base leading-relaxed text-aethon-cream/60 lg:col-span-7">
                         <p>
                             Aethon Commercial Group sits at the intersection of yield, design, and
                             deal structure. We work with institutional owners who need counsel that
@@ -159,7 +170,7 @@ const principles = [
                             From asset reviews to development pipelines, every engagement is structured
                             to protect value, sharpen positioning, and accelerate commercial outcomes.
                         </p>
-                    </div>
+                    </BlurFade>
                 </div>
             </div>
         </section>
@@ -167,7 +178,7 @@ const principles = [
         <!-- Services -->
         <section id="services" class="scroll-mt-24 border-t border-white/5 py-24 lg:py-32">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
-                <div class="mb-16 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+                <BlurFade class="mb-16 flex flex-col justify-between gap-6 md:flex-row md:items-end">
                     <div>
                         <p class="section-label mb-4">Services</p>
                         <h2 class="font-display text-3xl font-light text-aethon-cream md:text-4xl">
@@ -177,12 +188,14 @@ const principles = [
                     <p class="max-w-sm text-sm text-aethon-cream/45">
                         Three disciplines. One mandate: extract and protect value from hospitality assets.
                     </p>
-                </div>
+                </BlurFade>
 
                 <div class="grid gap-px bg-aethon-gold/10 md:grid-cols-3">
-                    <article
-                        v-for="item in services"
+                    <BlurFade
+                        v-for="(item, index) in services"
                         :key="item.number"
+                        :delay="index * 120"
+                        as="article"
                         class="group bg-aethon-navy p-8 transition duration-500 hover:bg-aethon-charcoal lg:p-12"
                     >
                         <p class="font-display text-4xl font-light text-aethon-gold">{{ item.number }}</p>
@@ -190,7 +203,7 @@ const principles = [
                         <p class="mt-4 text-sm leading-relaxed text-aethon-cream/50">
                             {{ item.description }}
                         </p>
-                    </article>
+                    </BlurFade>
                 </div>
             </div>
         </section>
@@ -198,17 +211,19 @@ const principles = [
         <!-- Focus Areas -->
         <section id="focus" class="scroll-mt-24 border-t border-white/5 bg-aethon-charcoal py-24 lg:py-32">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
-                <div class="mb-16 max-w-2xl">
+                <BlurFade class="mb-16 max-w-2xl">
                     <p class="section-label mb-4">Focus Areas</p>
                     <h2 class="font-display text-3xl font-light text-aethon-cream md:text-4xl">
                         Where commercial hospitality decisions take shape
                     </h2>
-                </div>
+                </BlurFade>
 
                 <div class="grid gap-4 md:grid-cols-2">
-                    <article
-                        v-for="pillar in focusAreas"
+                    <BlurFade
+                        v-for="(pillar, index) in focusAreas"
                         :key="pillar.id"
+                        :delay="index * 100"
+                        as="article"
                         class="card-editorial group"
                     >
                         <div class="relative aspect-[16/10] overflow-hidden">
@@ -227,20 +242,21 @@ const principles = [
                                 {{ pillar.description }}
                             </p>
                         </div>
-                    </article>
+                    </BlurFade>
                 </div>
 
                 <div class="mt-24 grid gap-16 lg:grid-cols-12">
-                    <div class="lg:col-span-4">
+                    <BlurFade class="lg:col-span-4">
                         <p class="section-label mb-4">Brand Principles</p>
                         <h3 class="font-display text-3xl font-light text-aethon-cream">
                             How we present commercial authority
                         </h3>
-                    </div>
+                    </BlurFade>
                     <div class="space-y-0 lg:col-span-8">
-                        <div
+                        <BlurFade
                             v-for="(guide, index) in principles"
                             :key="guide.title"
+                            :delay="index * 100"
                             class="flex gap-6 border-t border-white/10 py-8"
                         >
                             <span class="font-display text-xl font-light text-aethon-gold">
@@ -252,7 +268,7 @@ const principles = [
                                     {{ guide.description }}
                                 </p>
                             </div>
-                        </div>
+                        </BlurFade>
                     </div>
                 </div>
             </div>
@@ -261,7 +277,7 @@ const principles = [
         <!-- Contact -->
         <section id="contact" class="scroll-mt-24 relative overflow-hidden border-t border-white/5 py-24 lg:py-36">
             <div class="absolute inset-0 bg-hero-glow" />
-            <div class="relative mx-auto max-w-3xl px-6 text-center lg:px-8">
+            <BlurFade class="relative mx-auto max-w-3xl px-6 text-center lg:px-8">
                 <AethonLogo stacked class="mx-auto mb-10" />
                 <h2 class="font-display text-3xl font-light text-aethon-cream md:text-5xl">
                     Briefings for owners, operators, and capital.
@@ -282,19 +298,19 @@ const principles = [
                         consulting@aethoncg.com
                     </a>
                 </div>
-            </div>
+            </BlurFade>
         </section>
 
         <footer class="border-t border-white/5 bg-aethon-charcoal">
             <div class="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-4 lg:px-8">
-                <div class="md:col-span-2">
+                <BlurFade class="md:col-span-2">
                     <AethonLogo />
                     <p class="mt-6 max-w-sm text-sm leading-relaxed text-aethon-cream/40">
                         Hospitality commercial advisory. Asset yield, design strategy, and
                         transaction counsel for premium portfolios.
                     </p>
-                </div>
-                <div>
+                </BlurFade>
+                <BlurFade :delay="100">
                     <p class="section-label mb-5">Navigate</p>
                     <ul class="space-y-3 text-sm text-aethon-cream/50">
                         <li><a href="#practice" class="transition hover:text-aethon-gold">Practice</a></li>
@@ -302,8 +318,8 @@ const principles = [
                         <li><a href="#focus" class="transition hover:text-aethon-gold">Focus Areas</a></li>
                         <li><a href="#contact" class="transition hover:text-aethon-gold">Contact</a></li>
                     </ul>
-                </div>
-                <div>
+                </BlurFade>
+                <BlurFade :delay="200">
                     <p class="section-label mb-5">Access</p>
                     <ul class="space-y-3 text-sm text-aethon-cream/50">
                         <li v-if="canLogin">
@@ -316,14 +332,39 @@ const principles = [
                             <a href="mailto:consulting@aethoncg.com" class="transition hover:text-aethon-gold">consulting@aethoncg.com</a>
                         </li>
                     </ul>
-                </div>
+                </BlurFade>
             </div>
-            <div class="border-t border-white/5">
-                <div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-3 px-6 py-6 text-[0.7rem] text-aethon-cream/30 sm:flex-row sm:items-center lg:px-8">
-                    <p>&copy; {{ new Date().getFullYear() }} Aethon Commercial Group. All rights reserved.</p>
-                    <p class="tracking-[0.2em] uppercase">Αἴθων · Blazing</p>
+            <BlurFade>
+                <div class="border-t border-white/5">
+                    <div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-3 px-6 py-6 text-[0.7rem] text-aethon-cream/30 sm:flex-row sm:items-center lg:px-8">
+                        <p>&copy; {{ new Date().getFullYear() }} Aethon Commercial Group. All rights reserved.</p>
+                        <p class="tracking-[0.2em] uppercase">Αἴθων · Blazing</p>
+                    </div>
                 </div>
-            </div>
+            </BlurFade>
         </footer>
     </div>
 </template>
+
+<style scoped>
+.hero-image {
+    animation: hero-image-reveal 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    transform: scale(1.06);
+    filter: blur(10px);
+}
+
+@keyframes hero-image-reveal {
+    to {
+        transform: scale(1);
+        filter: blur(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-image {
+        animation: none;
+        transform: none;
+        filter: none;
+    }
+}
+</style>
