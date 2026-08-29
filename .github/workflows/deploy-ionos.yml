@@ -90,30 +90,31 @@ jobs:
           GOOGLE_REDIRECT_URI=${{ env.APP_URL }}/auth/google/callback
           EOF
 
-      - name: Deploy to IONOS via FTPS
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Prepare deployment package
+        run: |
+          mkdir -p release
+          rsync -a \
+            --exclude '.git' \
+            --exclude '.github' \
+            --exclude 'node_modules' \
+            --exclude 'tests' \
+            --exclude '.env.example' \
+            --exclude 'database/database.sqlite' \
+            --exclude 'release' \
+            ./ release/
+
+      - name: Deploy to IONOS via SFTP
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-          server: ${{ secrets.IONOS_FTP_HOST }}
-          username: ${{ secrets.IONOS_FTP_USERNAME }}
-          password: ${{ secrets.IONOS_FTP_PASSWORD }}
-          protocol: ftps
-          server-dir: ${{ secrets.IONOS_FTP_SERVER_DIR }}
-          local-dir: ./
-          log-level: minimal
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/.github/**
-            **/node_modules/**
-            **/tests/**
-            **/.env.example
-            **/database/database.sqlite
-            **/.editorconfig
-            **/phpunit.xml
-            **/deploy/DEPLOY.md
+          server: ${{ secrets.IONOS_SSH_HOST }}
+          username: ${{ secrets.IONOS_SSH_USERNAME }}
+          password: ${{ secrets.IONOS_SSH_PASSWORD }}
+          port: 22
+          localDir: ./release/
+          remoteDir: ${{ secrets.IONOS_SSH_PATH }}
+          sftpArgs: '-o ConnectTimeout=30'
 
       - name: Post-deploy (migrate and cache)
-        continue-on-error: true
         uses: appleboy/ssh-action@v1.2.0
         with:
           host: ${{ secrets.IONOS_SSH_HOST }}
