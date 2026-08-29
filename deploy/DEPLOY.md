@@ -2,16 +2,16 @@
 
 ## Server path
 
-Project lives at `/Aethon/` on the webspace.
+Project lives at `Aethon/` in the IONOS webspace (not webspace root).
 
 ## Manual upload
 
-1. Upload to `/Aethon/` (not webspace root).
-2. Connect **aethoncg.com** in IONOS and set document root to `/Aethon/public`.
+1. Upload to `Aethon/` (not webspace root).
+2. Connect **aethoncg.com** in IONOS and set document root to `Aethon/public`.
 3. Assign the MariaDB database to this webspace in IONOS (Hosting → Databases).
 4. Via SSH:
    ```bash
-   cd /Aethon
+   cd Aethon
    php artisan migrate --force
    php artisan config:cache
    chmod -R 775 storage bootstrap/cache
@@ -21,7 +21,7 @@ Project lives at `/Aethon/` on the webspace.
 
 Auto-deploy on push to `main` is enabled. You can also run manually: **Actions → Deploy to IONOS → Run workflow**.
 
-Deploys to `/Aethon/` only.
+Deploys to `Aethon/` only.
 
 ## Credentials
 

@@ -13,7 +13,7 @@ env:
   DB_PORT: '3306'
   IONOS_SSH_HOST: access-5019302200.webspace-host.com
   IONOS_SSH_USERNAME: su1846070
-  IONOS_SSH_PATH: /Aethon
+  IONOS_SSH_PATH: Aethon
 
 jobs:
   deploy:
