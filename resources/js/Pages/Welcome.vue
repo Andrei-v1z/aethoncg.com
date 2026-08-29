@@ -39,7 +39,7 @@ const imageryPillars = [
         title: 'Boardroom & Strategy',
         description:
             'Executive tables, yield reviews, and capital allocation. Business photography of the rooms where hospitality deals are decided.',
-        image: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80',
+        image: '/images/boardroom.jpg',
         alt: 'Business team in an executive strategy meeting',
     },
     {
@@ -47,7 +47,7 @@ const imageryPillars = [
         title: 'Aviation & Movement',
         description:
             'Private aviation, tarmac light, and cabin interiors. The aero layer of premium travel, not residential architecture.',
-        image: 'https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=1200&q=80',
+        image: '/images/aviation.jpg',
         alt: 'Private jet on the tarmac at dusk',
     },
     {
@@ -55,7 +55,7 @@ const imageryPillars = [
         title: 'Travel Environments',
         description:
             'Hotel lobbies, departure halls, and guest circulation. Travel stock that signals hospitality operations, never houses.',
-        image: 'https://images.unsplash.com/photo-1551882547-ff40c63fe97d?auto=format&fit=crop&w=1200&q=80',
+        image: '/images/hotel-lobby.jpg',
         alt: 'Luxury hotel lobby for premium travel',
     },
     {
@@ -63,7 +63,7 @@ const imageryPillars = [
         title: 'Human Elements',
         description:
             'Business travelers, tailored attire, and the handshake after diligence. People in motion between boardroom and gate.',
-        image: 'https://images.unsplash.com/photo-1521791136064-7986c2928956?auto=format&fit=crop&w=1200&q=80',
+        image: '/images/handshake.jpg',
         alt: 'Business handshake after a commercial agreement',
     },
 ];
@@ -97,7 +97,7 @@ const guidelines = [
         <section class="relative flex min-h-screen items-end overflow-hidden pb-16 pt-32 lg:items-center lg:pb-0 lg:pt-24">
             <div class="absolute inset-0">
                 <img
-                    src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=2000&q=80"
+                    src="/images/hero-wing.jpg"
                     alt="Aircraft wing above clouds during business travel"
                     class="h-full w-full object-cover object-center"
                 />
