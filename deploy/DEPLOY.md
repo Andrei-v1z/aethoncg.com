@@ -1,73 +1,72 @@
-# Deploy Aethon to IONOS Shared Hosting
+# Deploy Aethon to IONOS
 
-## 1. Database (MariaDB)
+Deployments run automatically via GitHub Actions on every push to `main`.
 
-After IONOS finishes provisioning, copy these from the IONOS database panel:
+Repo: [github.com/Andrei-v1z/aethoncg.com](https://github.com/Andrei-v1z/aethoncg.com)
 
-- Hostname
-- Database name
-- Username
-- Password
-- Port (usually `3306`)
+## Database (MariaDB)
 
-Create `.env` on the server from `deploy/ionos.env.example` and fill in the database values.
+| Setting  | Value |
+|----------|-------|
+| Host     | `db5021301145.hosting-data.io` |
+| Port     | `3306` |
+| Username | `dbu2466973` |
+| Database | `dbu2466973` (typical IONOS default; confirm in phpMyAdmin) |
+| Type     | MariaDB 11.8 |
 
-Generate an app key locally or on the server:
+## Required GitHub Secrets
 
-```bash
-php artisan key:generate --show
-```
+Set these in **Settings → Secrets and variables → Actions** on the repo.
 
-## 2. Upload the site
+### Application
 
-### Option A: Git (if SSH is enabled on IONOS)
+| Secret | Description |
+|--------|-------------|
+| `APP_KEY` | Laravel app key (`php artisan key:generate --show`) |
+| `GOOGLE_CLIENT_ID` | Google OAuth client ID |
+| `GOOGLE_CLIENT_SECRET` | Google OAuth client secret |
 
-```bash
-cd /path/to/webspace
-git clone https://github.com/Andrei-v1z/aethoncg.com.git .
-composer install --no-dev --optimize-autoloader
-cp deploy/ionos.env.example .env
-# edit .env with your database credentials and APP_KEY
-php artisan migrate --force
-php artisan config:cache
-php artisan route:cache
-php artisan view:cache
-chmod -R 775 storage bootstrap/cache
-```
+### Database
 
-### Option B: FTP/SFTP
+| Secret | Value |
+|--------|-------|
+| `DB_DATABASE` | `dbu2466973` |
+| `DB_USERNAME` | `dbu2466973` |
+| `DB_PASSWORD` | Your IONOS database password |
 
-Upload the full project to your webspace root, excluding:
+### IONOS FTP / FTPS
 
-- `node_modules/`
-- `.git/`
-- local `.env`
+| Secret | Description |
+|--------|-------------|
+| `IONOS_FTP_HOST` | FTP server from IONOS (e.g. `access-xxxxx.webspace-host.com`) |
+| `IONOS_FTP_USERNAME` | FTP username |
+| `IONOS_FTP_PASSWORD` | FTP password |
+| `IONOS_FTP_SERVER_DIR` | Remote webspace path (often `/` or leave as `/`) |
+| `IONOS_FTP_PORT` | Optional, default `21` |
 
-Include `public/build/` (production assets are committed for shared hosting).
+### IONOS SSH (post-deploy migrations)
 
-## 3. Document root
+| Secret | Description |
+|--------|-------------|
+| `IONOS_SSH_HOST` | SSH hostname from IONOS |
+| `IONOS_SSH_USERNAME` | SSH username |
+| `IONOS_SSH_PASSWORD` | SSH password |
+| `IONOS_SSH_PATH` | Full path to site on server (e.g. `/kunden/.../webseiten/aethoncg.com`) |
+| `IONOS_SSH_PORT` | Optional, default `22` |
 
-In IONOS, set the domain document root to the Laravel `public/` folder.
+## Manual deploy trigger
 
-If that is not available, keep the root `.htaccess` in the project root. It forwards requests to `public/`.
+Go to **Actions → Deploy to IONOS → Run workflow**.
 
-## 4. PHP version
+## IONOS panel settings
 
-Set PHP to **8.2 or higher** in the IONOS control panel.
+1. Connect **aethoncg.com** to your webspace.
+2. Set document root to the Laravel `public/` folder, or use the root `.htaccess`.
+3. Set PHP to **8.2 or higher**.
+4. In Google Cloud Console, add: `https://aethoncg.com/auth/google/callback`
 
-## 5. Google OAuth (production)
-
-In Google Cloud Console, add this authorized redirect URI:
-
-```
-https://aethoncg.com/auth/google/callback
-```
-
-Update `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, and `APP_URL` in production `.env`.
-
-## 6. Post-deploy checks
+## Post-deploy checks
 
 - Homepage loads at `https://aethoncg.com`
-- Login and register work
-- Google sign-in redirects correctly
-- Database tables exist (`users`, `sessions`, etc.)
+- Login, register, and Google sign-in work
+- Database tables exist (`users`, `sessions`, `cache`, etc.)
