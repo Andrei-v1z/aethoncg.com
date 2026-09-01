@@ -169,22 +169,18 @@ const focusAreas = [
     },
 ];
 
-const principles = [
-    {
-        title: 'Institutional Positioning',
-        description:
-            'Deep navy and warm gold signal authority, continuity, and premium commercial counsel. Every touchpoint should read as asset management.',
-    },
-    {
-        title: 'Editorial Restraint',
-        description:
-            'Cinematic composition with shallow depth of field. Avoid saturated leisure imagery that undermines a commercial group identity.',
-    },
-    {
-        title: 'Value-First Narrative',
-        description:
-            'Lead with yield, architecture, capital, and the decisions that move portfolios. Spectacle is secondary to returns.',
-    },
+const journalTopics = [
+    'Commercial insights',
+    'Tourism industry observations',
+    'Hotel contracting insights',
+    'Revenue and pricing analysis',
+    'Operational insights',
+    'Product development',
+    'Market development',
+    'Travel industry perspectives',
+    'Practical guides',
+    'Aethon opinions and analysis',
+    'Case studies and reports',
 ];
 </script>
 
@@ -363,31 +359,38 @@ const principles = [
                     </BlurFade>
                 </div>
 
-                <div class="mt-24 grid gap-16 lg:grid-cols-12">
+                <div id="journal" class="mt-24 scroll-mt-24 grid gap-16 lg:grid-cols-12">
                     <BlurFade class="lg:col-span-4">
-                        <p class="section-label mb-4">Brand Principles</p>
+                        <p class="section-label mb-4">Aethon Journal</p>
                         <h3 class="font-display text-3xl font-light text-aethon-cream">
-                            How we present commercial authority
+                            Insights that build credibility
                         </h3>
+                        <p class="mt-6 text-sm leading-relaxed text-aethon-cream/50">
+                            An ongoing content section for brand authority and search visibility.
+                            The Journal is also our content engine for LinkedIn.
+                        </p>
                     </BlurFade>
-                    <div class="space-y-0 lg:col-span-8">
-                        <BlurFade
-                            v-for="(guide, index) in principles"
-                            :key="guide.title"
-                            :delay="index * 100"
-                            class="flex gap-6 border-t border-white/10 py-8"
-                        >
-                            <span class="font-display text-xl font-light text-aethon-gold">
-                                0{{ index + 1 }}
-                            </span>
-                            <div>
-                                <h4 class="font-display text-xl text-aethon-cream">{{ guide.title }}</h4>
-                                <p class="mt-2 text-sm leading-relaxed text-aethon-cream/50">
-                                    {{ guide.description }}
-                                </p>
+                    <BlurFade :delay="120" class="lg:col-span-8">
+                        <div class="border border-white/5 bg-aethon-navy/60 p-8 lg:p-10">
+                            <p class="font-sans text-[0.65rem] font-medium uppercase tracking-[0.28em] text-aethon-gold">
+                                What we publish
+                            </p>
+                            <div class="mt-6 flex flex-wrap gap-2">
+                                <span
+                                    v-for="topic in journalTopics"
+                                    :key="topic"
+                                    class="rounded-sm border border-aethon-gold/15 bg-aethon-charcoal/60 px-3 py-1.5 font-sans text-[0.68rem] uppercase tracking-[0.12em] text-aethon-cream/55"
+                                >
+                                    {{ topic }}
+                                </span>
                             </div>
-                        </BlurFade>
-                    </div>
+                            <p class="mt-8 text-sm leading-relaxed text-aethon-cream/45">
+                                Practical analysis, industry perspective, and commercial opinion from
+                                the Aethon team. Case studies and formal reports will follow as the
+                                Journal grows.
+                            </p>
+                        </div>
+                    </BlurFade>
                 </div>
             </div>
         </section>
@@ -435,6 +438,7 @@ const principles = [
                         <li><a href="#practice" class="transition hover:text-aethon-gold">Practice</a></li>
                         <li><a href="#solutions" class="transition hover:text-aethon-gold">Solutions</a></li>
                         <li><a href="#focus" class="transition hover:text-aethon-gold">Focus Areas</a></li>
+                        <li><a href="#journal" class="transition hover:text-aethon-gold">Journal</a></li>
                         <li><a href="#contact" class="transition hover:text-aethon-gold">Contact</a></li>
                     </ul>
                 </BlurFade>

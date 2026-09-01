@@ -22,6 +22,7 @@ const links = [
     { href: '#practice', label: 'Practice' },
     { href: '#solutions', label: 'Solutions' },
     { href: '#focus', label: 'Focus' },
+    { href: '#journal', label: 'Journal' },
     { href: '#contact', label: 'Contact' },
 ];
 
